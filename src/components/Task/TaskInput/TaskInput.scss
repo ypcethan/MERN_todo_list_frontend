@@ -1,3 +1,26 @@
+@import "../../../styles/base";
+
+
+
 .task{
-  
+    &__input{
+        border: 0px;
+        outline: none;
+    }
+
+
+    &__add__icon{
+        color: $primary-color;
+        margin-right: 1rem;
+      
+    }
+
+    &__add__button{
+        color: grey;
+        cursor: pointer;
+        &:hover{
+            color: $secondary-color;
+        }
+        transition:color 0.3s ;
+    }
 }

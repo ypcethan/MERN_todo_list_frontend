@@ -2,10 +2,11 @@
 .container{
     background-color: rgb(255, 255, 255);
     width: 50%;
+    min-height: 50vh;
     margin:auto;
     margin-top: 5rem;
+    padding:2rem;
     border-radius: 10px;
-    min-height: 50vh;
 }
 
 @media (max-width: $desktop-breakpoint){

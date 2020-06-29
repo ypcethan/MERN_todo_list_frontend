@@ -1,0 +1,54 @@
+@import "../../../styles/base";
+
+.task-input-form__container{
+    display: flex;
+    margin-top: 1rem;
+}
+.task-input-form{
+    border: 1px solid gray;
+    outline: none;
+    border-bottom-left-radius:5px ;
+    border-top-left-radius: 5px;
+    height: 2rem;
+    width: 70%;
+}
+
+.task-input-schedule{
+    border-bottom-right-radius:5px ;
+    border-top-right-radius: 5px; 
+    width: 20%;
+    border: 1px solid gray;
+    border-left: 0px;
+    outline: none; 
+    color: gray;
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+}
+
+
+.task-add__button{
+    cursor: pointer;
+    background-color: $primary-color; 
+    color: white;
+    border:none;
+    border-radius: 5px;
+    padding:0.5rem;
+   
+    &:hover{
+        background-color: $secondary-color;
+    }
+    transition: background-color 0.5s;
+}
+
+.task-cancel__button{
+    cursor: pointer;
+    border:none;
+    background-color: inherit;
+    margin-left: 0.5rem;
+    color: gray;
+    &:hover{
+        color: black;
+    }
+    transition: background-color 0.5s;
+}
