@@ -1,0 +1,15 @@
+@import "../../../styles/base";
+.container{
+    background-color: rgb(255, 255, 255);
+    width: 50%;
+    margin:auto;
+    margin-top: 5rem;
+    border-radius: 10px;
+    min-height: 50vh;
+}
+
+@media (max-width: $desktop-breakpoint){
+    .container{
+        width:90%;
+    }
+}

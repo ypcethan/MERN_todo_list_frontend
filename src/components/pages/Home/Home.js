@@ -1,9 +1,10 @@
 import React from 'react'
-
+import TaskInput from '../../Task/TaskInput/TaskInput'
+import "./Home.scss"
 const Home = () => {
     return (
-        <div>
-            <h1>Home</h1>
+        <div className='container'>
+            <TaskInput />
         </div>
     )
 }
