@@ -1,28 +1,37 @@
 @import "../../../styles/base";
 .nav{
-    height: 14vh;
+    height: 12vh;
     background-color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 1.3rem;
 
+    &__logo{
+        margin-left: 1rem;
+    }
     &__links{
         margin-right: 3rem;
         display: flex;
-        background-color: green;
     }
 
     &__item{
         margin-right: 1.5rem;
         list-style: none;
+        text-decoration: none;
+        color: black;
+        &:hover{
+            color:grey
+        }
+        transition: color 0.5s;
     }
+
 }
 
 
 @media screen and (max-width: $desktop-breakpoint){
 
-    .nav {
-      background-color: lightblue;
-    }
+    // .nav {
+    //   background-color: lightblue;
+    // }
 }
