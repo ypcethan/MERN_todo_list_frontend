@@ -1,0 +1,28 @@
+@import "../../../styles/base";
+.task__item{
+    border-bottom: 1px solid rgb(212, 212, 212);
+    padding-bottom: 1.5rem;
+    padding-top: 1rem;
+    display: flex;
+    &__checkbox{
+        margin-right: 1.5rem;
+        border: 0px;
+        outline: none;
+    } 
+}
+
+.dot{
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color: #bbb;
+    text-align: center;
+    color: #bbb;
+    border-radius: 50%;
+    
+    &:hover {
+        background-color: $primary-color;
+        color: white;
+    }
+    transition: background-color 0.3s;
+    
+}
