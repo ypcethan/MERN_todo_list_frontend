@@ -8,16 +8,21 @@ const TaskInput = () => {
     return (
         <div>
             <div
-                className="task__add__button"
+                className={"task__add__button "
+                    + (writing ? "moveUp" : "moveDown")}
                 onClick={() => setWriting(true)}>
                 <FontAwesomeIcon
                     icon={faPlus}
                     className='task__add__icon' />
                 Add task
             </div>
-            {writing &&
-                <TaskInputForm cancel={() => setWriting(false)} />
-            }
+            <div className={(writing ? "moveDown" : "moveUp")}>
+                {writing &&
+                    <TaskInputForm
+                        cancel={() => setWriting(false)}
+                    />
+                }
+            </div>
         </div>
     )
 }
