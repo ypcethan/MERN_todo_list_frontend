@@ -12,11 +12,13 @@ const initialState = {
       id: 1,
       completed: false,
       content: "Task 1",
+      dueDate: new Date(),
     },
     {
       id: 2,
       completed: false,
       content: "Task 2",
+      dueDate: new Date(),
     },
   ],
   current: null,
