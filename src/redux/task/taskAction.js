@@ -4,8 +4,23 @@ import {
   UPDATE_TASK,
   SET_CURRENT,
   CLEAR_CURRENT,
+  FILTER_TASK,
+  CLEAR_FILTER
 } from "./taskType";
 
+
+export const filterTask = (text) => {
+  return {
+    type: FILTER_TASK,
+    payload: text
+  }
+}
+
+export const clearFilter = () => {
+  return {
+    type: CLEAR_FILTER
+  }
+}
 export const createTask = (task) => {
   return {
     type: CREATE_TASK,

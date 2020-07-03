@@ -4,6 +4,8 @@ import {
   UPDATE_TASK,
   SET_CURRENT,
   CLEAR_CURRENT,
+  FILTER_TASK,
+  CLEAR_FILTER
 } from "./taskType";
 
 const initialState = {
@@ -22,6 +24,7 @@ const initialState = {
     },
   ],
   current: null,
+  filtered: null
 };
 
 const reducer = (state = initialState, action) => {
@@ -54,6 +57,19 @@ const reducer = (state = initialState, action) => {
         ...state,
         current: null,
       };
+    case FILTER_TASK:
+      return {
+        ...state,
+        filtered: state.tasks.filter((task) => {
+          const regex = new RegExp(`${action.payload}`, 'gi')
+          return task.content.match(regex)
+        })
+      }
+    case CLEAR_FILTER:
+      return {
+        ...state,
+        filtered: null
+      }
     default:
       return state;
   }
