@@ -1,0 +1,56 @@
+@import "../../../styles/base";
+@import "../../../styles/base";
+.register{
+    &__header{
+        text-align: center;
+        font-size: 2rem;
+        padding-top: 1.5rem;        
+    }
+    &__container{
+
+        width: 50%;
+        margin: auto;
+        margin-top:8rem;
+        border-radius: 10px;
+        background-color: white;
+    }
+    &__form__container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__form{
+        // background-color: green;
+        width:70%;
+        margin: auto; 
+        padding: 3rem;
+    }
+    &__form__input{
+        display:block;
+        width: 100%;
+        margin-bottom: 2rem;
+        margin-top: 0.5rem;
+        height: 2rem;
+        border: 1px solid rgb(231, 222, 222);
+
+        border-radius: 5px;
+    }
+
+}
+
+.form__submit__btn{
+    border: none;
+    padding:0.5rem;
+    color:white;
+    background-color: $primary-color;
+}
+
+@media  (max-width: $desktop-breakpoint){
+    .register{
+
+    &__container{
+        width: 90%;
+    } 
+    }
+}
