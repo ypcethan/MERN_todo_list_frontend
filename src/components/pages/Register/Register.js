@@ -3,9 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { register, clearError } from "../../../redux/auth/authAction";
 import { setAlert } from "../../../redux/alert/alertAction";
 import "./Register.scss";
-const Register = () => {
+const Register = (props) => {
   const dispatch = useDispatch();
   const error = useSelector((state) => state.auth.error);
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,11 +22,14 @@ const Register = () => {
   };
 
   useEffect(() => {
+    if (isAuthenticated) {
+      props.history.push("/");
+    }
     if (error) {
       dispatch(setAlert(error));
       dispatch(clearError());
     }
-  }, [error]);
+  }, [error, isAuthenticated]);
 
   return (
     <div className="register__container">

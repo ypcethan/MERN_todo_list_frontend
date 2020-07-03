@@ -16,6 +16,7 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case REGISTER_SUCCESS:
+    case LOGIN_SUCCESS:
       return {
         ...state,
         isAuthenticated: true,
@@ -24,6 +25,7 @@ const reducer = (state = initialState, action) => {
         error: null,
       };
     case REGISTER_FAIL:
+    case LOGIN_FAIL:
       return {
         ...state,
         isAuthenticated: false,
