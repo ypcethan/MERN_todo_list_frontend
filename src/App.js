@@ -4,8 +4,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/layout/Navbar/Navbar";
 import Home from "./components/pages/Home/Home";
 import About from "./components/pages/About/About";
-import Register from './components/pages/Register/Register'
-import Login from './components/pages/Login/Login'
+import Register from "./components/pages/Register/Register";
+import Login from "./components/pages/Login/Login";
+import Alerts from "./components/layout/Alerts/Alerts";
 import store from "./redux/store";
 import "./App.scss";
 
@@ -15,6 +16,7 @@ function App() {
       <div className="App">
         <Router>
           <Navbar />
+          <Alerts />
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/about" component={About} />
