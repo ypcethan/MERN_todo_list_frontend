@@ -7,7 +7,9 @@ import About from "./components/pages/About/About";
 import Register from "./components/pages/Register/Register";
 import Login from "./components/pages/Login/Login";
 import Alerts from "./components/layout/Alerts/Alerts";
+import ProtectedRoute from "./components/utils/ProtectedRoute";
 import store from "./redux/store";
+
 import "./App.scss";
 
 function App() {
@@ -18,7 +20,7 @@ function App() {
           <Navbar />
           <Alerts />
           <Switch>
-            <Route path="/" exact component={Home} />
+            <ProtectedRoute path="/" exact component={Home} />
             <Route path="/about" component={About} />
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
