@@ -38,7 +38,7 @@ const Login = (props) => {
             Password
           </label>
           <input
-            type="text"
+            type="password"
             id="password"
             placeholder="Password"
             name="password"

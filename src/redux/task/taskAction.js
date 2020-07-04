@@ -10,7 +10,12 @@ import {
   CLEAR_FILTER,
 } from "./taskType";
 
-const baseUrl = "http://localhost:5000";
+let baseUrl;
+if (process.env.NODE_ENV !== "production") {
+  baseUrl = process.env.REACT_APP_BACKEND_URL;
+} else {
+  baseUrl = process.env.BACKEND_URL;
+}
 export const filterTask = (text) => {
   return {
     type: FILTER_TASK,
@@ -27,7 +32,6 @@ export const getTasks = () => {
   return async (dispatch) => {
     try {
       const response = await axios.get(baseUrl + "/api/tasks");
-      console.log(response);
       dispatch({
         type: GET_TASKS,
         payload: response.data.tasks,

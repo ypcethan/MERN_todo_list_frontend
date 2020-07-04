@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DatePicker from "react-datepicker";
-import moment from "moment";
-import {
-  createTask,
-  clearCurrent,
-  updateTask,
-} from "../../../redux/task/taskAction";
-import { v4 as uuidv4 } from "uuid";
+import { createTask, updateTask } from "../../../redux/task/taskAction";
 import "react-datepicker/dist/react-datepicker.css";
 import "./TaskInputFrom.scss";
 

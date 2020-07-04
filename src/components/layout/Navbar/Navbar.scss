@@ -1,37 +1,38 @@
 @import "../../../styles/base";
-.nav{
-    height: 12vh;
-    background-color: #fff;
+.nav {
+  height: 12vh;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.3rem;
+  &__welcome {
+    margin-right: 1.5rem;
+  }
+
+  &__logo {
+    margin-left: 1rem;
+  }
+  &__links {
+    margin-right: 3rem;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.3rem;
+  }
 
-    &__logo{
-        margin-left: 1rem;
+  &__item {
+    margin-right: 1.5rem;
+    list-style: none;
+    text-decoration: none;
+    color: black;
+    &:hover {
+      color: grey;
     }
-    &__links{
-        margin-right: 3rem;
-        display: flex;
-    }
-
-    &__item{
-        margin-right: 1.5rem;
-        list-style: none;
-        text-decoration: none;
-        color: black;
-        &:hover{
-            color:grey
-        }
-        transition: color 0.5s;
-    }
-
+    transition: color 0.5s;
+  }
 }
 
-
-@media  (max-width: $desktop-breakpoint){
-
-    // .nav {
-    //   background-color: lightblue;
-    // }
+@media (max-width: $desktop-breakpoint) {
+  // .nav {
+  //   background-color: lightblue;
+  // }
 }
+

@@ -7,7 +7,13 @@ import {
   LOGIN_SUCCESS,
   LOGOUT,
 } from "./authType";
-const baseUrl = "http://localhost:5000";
+
+let baseUrl;
+if (process.env.NODE_ENV !== "production") {
+  baseUrl = process.env.REACT_APP_BACKEND_URL;
+} else {
+  baseUrl = process.env.BACKEND_URL;
+}
 
 const setHeaderAuthToken = (token) => {
   if (token) {

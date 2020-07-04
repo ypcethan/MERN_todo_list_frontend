@@ -9,10 +9,15 @@ const Navbar = () => {
     dispatch(logout());
   };
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const user = useSelector((state) => state.auth.user);
   const authLinks = (
     <>
+      <span className="nav__welcome">Welcome {user}</span>
       <Link to="/" className="nav__item">
         Home
+      </Link>
+      <Link to="/about" className="nav__item">
+        About
       </Link>
       <div className="nav__item" onClick={handleLogout}>
         Logout
@@ -34,9 +39,6 @@ const Navbar = () => {
       <div className="nav__logo">MERN todo list</div>
       <div className="nav__links__container">
         <ul className="nav__links">
-          <Link to="/about" className="nav__item">
-            About
-          </Link>
           {isAuthenticated ? authLinks : guestLinks}
         </ul>
       </div>
