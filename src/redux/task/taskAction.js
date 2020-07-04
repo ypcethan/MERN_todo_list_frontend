@@ -11,11 +11,12 @@ import {
 } from "./taskType";
 
 let baseUrl;
-if (process.env.NODE_ENV !== "production") {
-  baseUrl = process.env.REACT_APP_BACKEND_URL;
-} else {
-  baseUrl = process.env.BACKEND_URL;
-}
+baseUrl = process.env.REACT_APP_BACKEND_URL;
+// if (process.env.NODE_ENV !== "production") {
+//   baseUrl = process.env.REACT_APP_BACKEND_URL;
+// } else {
+//   baseUrl = process.env.BACKEND_URL;
+// }
 export const filterTask = (text) => {
   return {
     type: FILTER_TASK,
