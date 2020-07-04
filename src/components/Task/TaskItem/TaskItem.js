@@ -8,12 +8,12 @@ import {
 } from "../../../redux/task/taskAction";
 import "./TaskItem.scss";
 
-const TaskItem = ({ task, onDelete }) => {
-  const { content, id, dueDate } = task;
+const TaskItem = ({ task }) => {
+  const { content, _id, dueDate } = task;
   const formattedDate = moment(dueDate).format("MMM Do");
   const dispatch = useDispatch();
   const deleteItem = (e) => {
-    dispatch(deleteTask(id));
+    dispatch(deleteTask(_id));
     dispatch(clearCurrent());
   };
 
@@ -22,7 +22,7 @@ const TaskItem = ({ task, onDelete }) => {
   };
   return (
     <div className="task__item">
-      <div className="task__item__checkbox dot" onClick={deleteItem} id={id}>
+      <div className="task__item__checkbox dot" onClick={deleteItem} id={_id}>
         &#10003;
       </div>
       <div className="task__item__content__container">

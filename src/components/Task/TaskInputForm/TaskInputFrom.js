@@ -21,9 +21,9 @@ const TaskInputFrom = ({ cancel }) => {
     if (current) {
       // update task
       dispatch(updateTask({ ...current, content: task, dueDate: date }));
-      dispatch(clearCurrent());
+      // dispatch(clearCurrent());
     } else {
-      dispatch(createTask({ content: task, id: uuidv4(), dueDate: date }));
+      dispatch(createTask({ content: task, dueDate: date }));
     }
 
     setTask("");
@@ -32,7 +32,7 @@ const TaskInputFrom = ({ cancel }) => {
   useEffect(() => {
     if (current) {
       setTask(current.content);
-      setDate(current.dueDate);
+      setDate(new Date(current.dueDate));
     }
   }, [current]);
 

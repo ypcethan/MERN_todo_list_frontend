@@ -1,5 +1,6 @@
 import axios from "axios";
 import {
+  GET_TASKS,
   CREATE_TASK,
   DELETE_TASK,
   UPDATE_TASK,
@@ -22,12 +23,20 @@ export const clearFilter = () => {
     type: CLEAR_FILTER,
   };
 };
-// export const createTask = (task) => {
-//   return {
-//     type: CREATE_TASK,
-//     payload: task,
-//   };
-// };
+export const getTasks = () => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.get(baseUrl + "/api/tasks");
+      console.log(response);
+      dispatch({
+        type: GET_TASKS,
+        payload: response.data.tasks,
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  };
+};
 
 export const createTask = (task) => {
   return async (dispatch) => {
@@ -38,27 +47,48 @@ export const createTask = (task) => {
       });
       dispatch({
         type: CREATE_TASK,
-        payload: task,
+        payload: response.data.task,
       });
     } catch (e) {
       console.error(e);
     }
   };
 };
+
 export const updateTask = (task) => {
-  return {
-    type: UPDATE_TASK,
-    payload: task,
+  return async (dispatch) => {
+    const bodyData = {
+      content: task.content,
+      dueDate: task.dueDate,
+    };
+
+    try {
+      const response = await axios.patch(
+        baseUrl + `/api/tasks/${task._id}`,
+        bodyData
+      );
+      dispatch({
+        type: UPDATE_TASK,
+        payload: response.data.task,
+      });
+    } catch (e) {
+      console.error(e);
+    }
   };
 };
-
 export const deleteTask = (id) => {
-  return {
-    type: DELETE_TASK,
-    payload: id,
+  return async (dispatch) => {
+    try {
+      const response = await axios.delete(baseUrl + `/api/tasks/${id}`);
+      dispatch({
+        type: DELETE_TASK,
+        payload: id,
+      });
+    } catch (e) {
+      console.error(e);
+    }
   };
 };
-
 export const setCurrent = (task) => {
   return {
     type: SET_CURRENT,

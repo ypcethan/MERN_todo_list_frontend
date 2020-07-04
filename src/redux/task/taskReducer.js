@@ -1,34 +1,27 @@
 import {
+  GET_TASKS,
   CREATE_TASK,
   DELETE_TASK,
   UPDATE_TASK,
   SET_CURRENT,
   CLEAR_CURRENT,
   FILTER_TASK,
-  CLEAR_FILTER
+  CLEAR_FILTER,
 } from "./taskType";
 
 const initialState = {
-  tasks: [
-    {
-      id: 1,
-      completed: false,
-      content: "Task 1",
-      dueDate: new Date(),
-    },
-    {
-      id: 2,
-      completed: false,
-      content: "Task 2",
-      dueDate: new Date(),
-    },
-  ],
+  tasks: [],
   current: null,
-  filtered: null
+  filtered: null,
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case GET_TASKS:
+      return {
+        ...state,
+        tasks: action.payload,
+      };
     case CREATE_TASK:
       return {
         ...state,
@@ -37,14 +30,14 @@ const reducer = (state = initialState, action) => {
     case DELETE_TASK:
       return {
         ...state,
-        tasks: state.tasks.filter((task) => task.id !== action.payload),
+        tasks: state.tasks.filter((task) => task._id !== action.payload),
       };
 
     case UPDATE_TASK:
       return {
         ...state,
         tasks: state.tasks.map((task) =>
-          task.id === action.payload.id ? action.payload : task
+          task._id === action.payload._id ? action.payload : task
         ),
       };
     case SET_CURRENT:
@@ -61,15 +54,15 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         filtered: state.tasks.filter((task) => {
-          const regex = new RegExp(`${action.payload}`, 'gi')
-          return task.content.match(regex)
-        })
-      }
+          const regex = new RegExp(`${action.payload}`, "gi");
+          return task.content.match(regex);
+        }),
+      };
     case CLEAR_FILTER:
       return {
         ...state,
-        filtered: null
-      }
+        filtered: null,
+      };
     default:
       return state;
   }
