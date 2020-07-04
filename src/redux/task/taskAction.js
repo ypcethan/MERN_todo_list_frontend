@@ -45,10 +45,11 @@ export const getTasks = () => {
 
 export const createTask = (task) => {
   return async (dispatch) => {
+    console.log(task);
     try {
       const response = await axios.post(baseUrl + "/api/tasks", {
         content: task.content,
-        dueData: task.dueData,
+        dueDate: task.dueDate,
       });
       dispatch({
         type: CREATE_TASK,

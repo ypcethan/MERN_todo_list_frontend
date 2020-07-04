@@ -2,22 +2,30 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DatePicker from "react-datepicker";
 import { createTask, updateTask } from "../../../redux/task/taskAction";
+import { SingleDatePicker } from "react-dates";
 import "react-datepicker/dist/react-datepicker.css";
 import "./TaskInputFrom.scss";
+import "react-dates/initialize";
+import "react-dates/lib/css/_datepicker.css";
+import moment from "moment";
 
 const TaskInputFrom = ({ cancel }) => {
   const dispatch = useDispatch();
   const current = useSelector((state) => state.task.current);
   const [task, setTask] = useState("");
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState(moment());
+  const [focused, setFocused] = useState(false);
   const [openSchdule, setOpenSchedule] = useState(false);
   const handleSubmit = () => {
     if (current) {
       // update task
-      dispatch(updateTask({ ...current, content: task, dueDate: date }));
+
+      dispatch(
+        updateTask({ ...current, content: task, dueDate: date.toDate() })
+      );
       // dispatch(clearCurrent());
     } else {
-      dispatch(createTask({ content: task, dueDate: date }));
+      dispatch(createTask({ content: task, dueDate: date.toDate() }));
     }
 
     setTask("");
@@ -26,7 +34,7 @@ const TaskInputFrom = ({ cancel }) => {
   useEffect(() => {
     if (current) {
       setTask(current.content);
-      setDate(new Date(current.dueDate));
+      setDate(moment(current.dueDate));
     }
   }, [current]);
 
@@ -48,22 +56,12 @@ const TaskInputFrom = ({ cancel }) => {
           onClick={() => setOpenSchedule(true)}
         >
           {openSchdule ? (
-            <DatePicker
-              showPopperArrow={false}
-              minDate={new Date()}
-              selected={date}
-              onChange={handleDateChange}
-              popperModifiers={{
-                offset: {
-                  enabled: true,
-                  offset: "5px, 10px",
-                },
-                preventOverflow: {
-                  enabled: true,
-                  escapeWithReference: false,
-                  boundariesElement: "viewport",
-                },
-              }}
+            <SingleDatePicker
+              date={date} // momentPropTypes.momentObj or null
+              onDateChange={(date) => setDate(date)} // PropTypes.func.isRequired
+              focused={focused} // PropTypes.bool
+              onFocusChange={({ focused }) => setFocused(focused)} // PropTypes.func.isRequired
+              id="your_unique_id" // PropTypes.string.isRequired,
             />
           ) : (
             "Schedule"
