@@ -59,6 +59,17 @@ const TaskInputFrom = ({ cancel }) => {
               minDate={new Date()}
               selected={date}
               onChange={handleDateChange}
+              popperModifiers={{
+                offset: {
+                  enabled: true,
+                  offset: "5px, 10px",
+                },
+                preventOverflow: {
+                  enabled: true,
+                  escapeWithReference: false,
+                  boundariesElement: "viewport",
+                },
+              }}
             />
           ) : (
             "Schedule"

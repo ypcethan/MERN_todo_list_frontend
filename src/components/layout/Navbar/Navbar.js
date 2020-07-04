@@ -14,9 +14,9 @@ const Navbar = () => {
       <Link to="/" className="nav__item">
         Home
       </Link>
-      <Link className="nav__item" onClick={handleLogout}>
+      <div className="nav__item" onClick={handleLogout}>
         Logout
-      </Link>
+      </div>
     </>
   );
   const guestLinks = (
