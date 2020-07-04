@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import DatePicker from "react-datepicker";
-import { createTask, updateTask } from "../../../redux/task/taskAction";
 import { SingleDatePicker } from "react-dates";
-import "react-datepicker/dist/react-datepicker.css";
-import "./TaskInputFrom.scss";
+import moment from "moment";
+import {
+  createTask,
+  updateTask,
+  clearCurrent,
+} from "../../../redux/task/taskAction";
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
-import moment from "moment";
+import "./TaskInputFrom.scss";
 
 const TaskInputFrom = ({ cancel }) => {
   const dispatch = useDispatch();
@@ -23,12 +25,14 @@ const TaskInputFrom = ({ cancel }) => {
       dispatch(
         updateTask({ ...current, content: task, dueDate: date.toDate() })
       );
-      // dispatch(clearCurrent());
+      dispatch(clearCurrent());
     } else {
       dispatch(createTask({ content: task, dueDate: date.toDate() }));
     }
 
     setTask("");
+    setDate(moment());
+    cancel();
   };
 
   useEffect(() => {
@@ -59,6 +63,7 @@ const TaskInputFrom = ({ cancel }) => {
             <SingleDatePicker
               date={date} // momentPropTypes.momentObj or null
               onDateChange={(date) => setDate(date)} // PropTypes.func.isRequired
+              numberOfMonths={1}
               focused={focused} // PropTypes.bool
               onFocusChange={({ focused }) => setFocused(focused)} // PropTypes.func.isRequired
               id="your_unique_id" // PropTypes.string.isRequired,

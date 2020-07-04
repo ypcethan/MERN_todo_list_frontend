@@ -16,14 +16,14 @@
 .task-input-schedule {
   border-bottom-right-radius: 5px;
   border-top-right-radius: 5px;
-  width: 20%;
+  width: 30%;
   border: 1px solid gray;
   border-left: 0px;
   outline: none;
   color: gray;
   display: flex;
   align-items: center;
-  padding-left: 1rem;
+  padding-left: 0.75rem;
 }
 
 .task-add__button {
@@ -63,7 +63,15 @@
     outline: none;
   }
 }
-
+.SingleDatePickerInput {
+  width: 85%;
+  border: 0;
+  overflow: hidden;
+}
+.DateInput_input {
+  padding: 0;
+  border: 0px;
+}
 @media (max-width: $desktop-breakpoint) {
   .task-input-form__container {
     flex-direction: column;
