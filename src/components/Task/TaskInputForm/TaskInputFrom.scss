@@ -64,3 +64,20 @@
   }
 }
 
+@media (max-width: $desktop-breakpoint) {
+  .task-input-form__container {
+    flex-direction: column;
+  }
+
+  .task-input-form {
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    width: 100%;
+  }
+  .task-input-schedule {
+    width: 40%;
+    border-radius: 5px;
+    border: 1px solid gray;
+    padding: 0.5rem;
+  }
+}

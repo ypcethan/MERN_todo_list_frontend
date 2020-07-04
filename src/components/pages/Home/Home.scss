@@ -1,16 +1,17 @@
 @import "../../../styles/base";
-.container{
-    background-color: rgb(255, 255, 255);
-    width: 50%;
-    min-height: 50vh;
-    margin:auto;
-    margin-top: 5rem;
-    padding:2rem;
-    border-radius: 10px;
+.container {
+  background-color: rgb(255, 255, 255);
+  width: 50%;
+  min-height: 50vh;
+  margin: auto;
+  margin-top: 5rem;
+  padding: 2rem;
+  border-radius: 10px;
 }
 
-@media (max-width: $desktop-breakpoint){
-    .container{
-        width:90%;
-    }
+@media (max-width: $desktop-breakpoint) {
+  .container {
+    width: 70%;
+  }
 }
+
