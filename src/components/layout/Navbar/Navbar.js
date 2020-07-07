@@ -1,20 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { logout } from "../../../redux/auth/authAction";
 import "./Navbar.scss";
 const Navbar = () => {
   const dispatch = useDispatch();
+  const [burgerActive, setBurgerActive] = useState(false);
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const user = useSelector((state) => state.auth.user);
+  const toggleBurger = () => {
+    setBurgerActive(!burgerActive);
+  };
   const handleLogout = () => {
     dispatch(logout());
   };
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  const user = useSelector((state) => state.auth.user);
   const authLinks = (
     <>
-      <span className="nav__welcome">Welcome {user}</span>
+      <span className="nav__welcome"> Welcome {user} </span>
       <Link to="/" className="nav__item">
         Home
+      </Link>
+      <Link to="/dashboard" className="nav__item">
+        DashBoard
       </Link>
       <Link to="/about" className="nav__item">
         About
@@ -32,17 +39,30 @@ const Navbar = () => {
       <Link to="/login" className="nav__item">
         Login
       </Link>
-    </>
+      <Link to="/about" className="nav__item">
+        About
+      </Link>
+      </>
   );
   return (
     <div className="nav">
-      <div className="nav__logo">MERN todo list</div>
+      <div className="nav__logo"> MERN todo list </div>
       <div className="nav__links__container">
-        <ul className="nav__links">
+        <ul 
+        className={`nav__links ${burgerActive ? "nav__links--active" : ""}`}>
           {isAuthenticated ? authLinks : guestLinks}
         </ul>
+        <div className=
+        {`nav__burger ${burgerActive ? "nav__burger--active" : ""}`}
+          onClick={toggleBurger}
+        >
+          <div className="burger__line1"> </div>
+          <div className="burger__line2"> </div>
+          <div className="burger__line3"> </div>
+        </div>
       </div>
     </div>
   );
 };
 export default Navbar;
+

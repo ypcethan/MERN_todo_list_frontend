@@ -1,4 +1,5 @@
 @import "../../../styles/base";
+
 .nav {
   height: 12vh;
   background-color: #fff;
@@ -6,6 +7,7 @@
   justify-content: space-between;
   align-items: center;
   font-size: 1.3rem;
+
   &__welcome {
     margin-right: 1.5rem;
   }
@@ -13,6 +15,7 @@
   &__logo {
     margin-left: 1rem;
   }
+
   &__links {
     margin-right: 3rem;
     display: flex;
@@ -23,16 +26,68 @@
     list-style: none;
     text-decoration: none;
     color: black;
+
     &:hover {
       color: grey;
     }
+
     transition: color 0.5s;
+  }
+
+  &__burger {
+    display: none;
   }
 }
 
 @media (max-width: $desktop-breakpoint) {
-  // .nav {
-  //   background-color: lightblue;
-  // }
-}
+  .nav {
+    &__links {
+      position: absolute;
+      right: 0px;
+      top: 12vh;
+      height: 100vh;
+      background-color: $primary-color;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
 
+      // justify-content: space-around;
+      align-items: center;
+      width: 50%;
+      transform: translateX(100%);
+
+      &--active {
+        transform: translateX(0%);
+      }
+      transition: transform 0.5s;
+    }
+    &__item{
+      margin-top: 4rem;
+    }
+    &__burger {
+      display: block;
+      cursor: pointer;
+      margin-right: 1rem;
+
+      div {
+        width: 25px;
+        height: 3px;
+        margin: 5px;
+        background-color: black;
+        transition: all 0.5s;
+      }
+    }
+  }
+
+  .nav__burger--active .burger__line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+    background-color: $primary-color;
+  }
+  .nav__burger--active .burger__line2 {
+    opacity: 0;
+  }
+  .nav__burger--active .burger__line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+    background-color: $primary-color;
+  }
+}

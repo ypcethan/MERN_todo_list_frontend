@@ -3,6 +3,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/layout/Navbar/Navbar";
 import Home from "./components/pages/Home/Home";
+import DashBoard from "./components/pages/DashBoard/DashBoard";
 import About from "./components/pages/About/About";
 import Register from "./components/pages/Register/Register";
 import Login from "./components/pages/Login/Login";
@@ -22,6 +23,7 @@ function App() {
           <Switch>
             <ProtectedRoute path="/" exact component={Home} />
             <Route path="/about" component={About} />
+            <Route path="/dashboard" component={DashBoard} />
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
           </Switch>
