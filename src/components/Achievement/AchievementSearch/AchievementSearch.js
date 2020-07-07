@@ -14,13 +14,15 @@ const AchievementSearch = () => {
 	useEffect(()=> {
 		const amount = text.replace(/[A-aZ-z]+/, '')
 		const unit = text.replace(/\d+/, '')
-		if (unit.length > 0 && !unit.match(/(days|day|month|months|week|weeks)/)){
-			dispatch(setAlert('The input value seems wrong'))
-			dispatch(clearTasks())
-		}
-		else{
-			const option = {amount, unit}
-			dispatch(getTasks(option))
+		if (unit.length > 0) {
+			if ( !unit.match(/(days|day|month|months|week|weeks)/)){
+				dispatch(setAlert('The input value seems wrong'))
+				dispatch(clearTasks())
+			}
+			else {
+				const option = {amount, unit}
+				dispatch(getTasks(option))
+			}
 		}
 	}, [dispatch, text])
 	return (
