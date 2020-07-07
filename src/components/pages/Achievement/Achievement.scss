@@ -9,12 +9,6 @@
   border-radius: 10px;
 }
 
-.selection__box{
-    outline: none;
-    border: 0px;
-    border-bottom: 2px solid $primary-color;
-    height: 1.5rem;
-}
 
 @media (max-width: $desktop-breakpoint) {
   .container {

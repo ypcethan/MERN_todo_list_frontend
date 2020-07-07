@@ -1,9 +1,13 @@
 @import "../../../styles/base";
 .task__item {
-  border-bottom: 1px solid rgb(212, 212, 212);
-  padding-bottom: 1rem;
-  padding-top: 1rem;
   display: flex;
+  &__container{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(212, 212, 212);
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+  }
   &__checkbox {
     margin-right: 1.5rem;
     border: 0px;
@@ -19,6 +23,16 @@
     margin-top: 0.5rem;
     color: #bbb;
     font-size: 0.75rem;
+  }
+  &__delete__btn{
+    background-color: inherit;
+    border: 0px;
+    cursor: pointer;
+    color: gray;
+    &:hover{
+      color:$primary-color;
+    }
+    transition: color 0.4s;
   }
 }
 
