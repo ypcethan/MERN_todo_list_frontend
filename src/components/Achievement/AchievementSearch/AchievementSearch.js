@@ -22,7 +22,7 @@ const AchievementSearch = () => {
 			const option = {amount, unit}
 			dispatch(getTasks(option))
 		}
-	}, [text])
+	}, [dispatch, text])
 	return (
 		<div>
 			<span className='achievement__label'>
@@ -36,6 +36,7 @@ const AchievementSearch = () => {
 				value={text}
 				onChange={handleChange}
 				debounceTimeout={1000}
+				minLength={3}
 			/> 
 		</div>
 	)

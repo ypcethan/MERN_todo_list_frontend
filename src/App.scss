@@ -4,6 +4,9 @@ html {
   background-color: rgb(211, 222, 231);
   min-height: 100vh;
   font-family: "Muli", sans-serif;
-  overflow: hidden;
 }
 
+html,body{
+
+  overflow: hidden;
+}
