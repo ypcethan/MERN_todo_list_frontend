@@ -19,8 +19,8 @@ const Navbar = () => {
       <Link to="/" className="nav__item">
         Home
       </Link>
-      <Link to="/dashboard" className="nav__item">
-        DashBoard
+      <Link to="/achievement" className="nav__item">
+        Achievement
       </Link>
       <Link to="/about" className="nav__item">
         About

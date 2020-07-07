@@ -1,0 +1,23 @@
+@import "../../../styles/base";
+.container {
+  background-color: rgb(255, 255, 255);
+  width: 50%;
+  min-height: 50vh;
+  margin: auto;
+  margin-top: 5rem;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.selection__box{
+    outline: none;
+    border: 0px;
+    border-bottom: 2px solid $primary-color;
+    height: 1.5rem;
+}
+
+@media (max-width: $desktop-breakpoint) {
+  .container {
+    width: 70%;
+  }
+}

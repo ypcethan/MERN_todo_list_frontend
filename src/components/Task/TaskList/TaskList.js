@@ -10,7 +10,7 @@ const TaskList = () => {
 
   return (
     <div>
-      <h1>TaskList</h1>
+      <h1>Task list</h1>
       {listToRender && listToRender.length > 0
         ? listToRender.map((task) => <TaskItem task={task} key={task._id} />)
         : "No task found"}
