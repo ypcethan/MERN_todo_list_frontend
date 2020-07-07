@@ -2,15 +2,15 @@ import React ,{useState} from 'react'
 import {useDispatch} from 'react-redux'
 import  {getTasks}from '../../../redux/task/taskAction'
 import './AchievementSearch.scss'
-import moment from 'moment'
 const AchievementSearch = () => {
 	const dispatch=useDispatch()
 	const [text,setText] = useState('')
 	const handleSubmit = (e) => {
 		e.preventDefault()
 		console.log('Submit')
-		// const fromDate = moment().subtract(3, 'days')
-		const option = {amount: 3, unit:'days'}
+		const amount = text.replace(/[A-aZ-z]+/, '')
+		const unit = text.replace(/\d+/, '')
+		const option = {amount, unit}
 		dispatch(getTasks(option))
 	}
 	return (

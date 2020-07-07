@@ -5,7 +5,6 @@ const AchievementList = () => {
 	const completedTasks = useSelector(state=>state.task.tasks)
 	return (
 		<div>
-            AchievementList 
 			{completedTasks.map(task=> <AchievementItem task={task} key={task._id}/>)}
 		</div>
 	)
