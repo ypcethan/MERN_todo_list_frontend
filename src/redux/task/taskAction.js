@@ -101,7 +101,7 @@ export const updateTask = (task) => {
 export const deleteTask = (id) => {
 	return async (dispatch) => {
 		try {
-			const response = await axios.delete(baseUrl + `/api/tasks/${id}`)
+			 await axios.delete(baseUrl + `/api/tasks/${id}`)
 			dispatch({
 				type: DELETE_TASK,
 				payload: id,

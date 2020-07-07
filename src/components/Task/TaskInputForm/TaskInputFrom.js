@@ -42,9 +42,7 @@ const TaskInputFrom = ({ cancel }) => {
     }
   }, [current]);
 
-  const handleDateChange = (newDate) => {
-    setDate(newDate);
-  };
+  
   return (
     <div>
       <div className="task-input-form__container">
