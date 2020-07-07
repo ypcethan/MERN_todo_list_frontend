@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import moment from 'moment'
 import {
 	deleteTask,
+	updateTask,
 	setCurrent,
 	clearCurrent,
 } from '../../../redux/task/taskAction'
@@ -16,6 +17,9 @@ const TaskItem = ({ task }) => {
 		dispatch(deleteTask(_id))
 		dispatch(clearCurrent())
 	}
+	const completeTask = (e) => {
+		dispatch(updateTask({...task , completed: true}))
+	}
 
 	const setEdit = () => {
 		dispatch(setCurrent(task))
@@ -24,7 +28,7 @@ const TaskItem = ({ task }) => {
 		<div className="task__item__container">
 
 			<div className="task__item">
-				<div className="task__item__checkbox dot" onClick={deleteItem} >
+				<div className="task__item__checkbox dot" onClick={completeTask} >
         &#10003;
 				</div>
 				<div className="task__item__content__container">

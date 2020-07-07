@@ -72,6 +72,7 @@ export const updateTask = (task) => {
 		const bodyData = {
 			content: task.content,
 			dueDate: task.dueDate,
+			completed:task.completed
 		}
 
 		try {

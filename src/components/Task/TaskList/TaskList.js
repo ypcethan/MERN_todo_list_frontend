@@ -3,7 +3,7 @@ import TaskItem from '../TaskItem/TaskItem'
 import { useSelector } from 'react-redux'
 
 const TaskList = () => {
-	const tasks = useSelector((state) => state.task.tasks)
+	const tasks = useSelector((state) => state.task.tasks.filter(task=>!task.completed))
 	const filtered = useSelector((state) => state.task.filtered)
 
 	let listToRender = filtered ? filtered : tasks
