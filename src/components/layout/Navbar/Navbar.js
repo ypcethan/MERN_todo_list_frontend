@@ -20,7 +20,7 @@ const Navbar = () => {
         Home
 			</Link>
 			<Link to="/achievement" className="nav__item">
-        Achievement
+        Achievements
 			</Link>
 			<Link to="/about" className="nav__item">
         About

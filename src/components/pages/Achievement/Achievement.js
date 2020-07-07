@@ -11,7 +11,7 @@ const Achievement = () => {
 	}, [])
 	return (
 		<div className='container'>
-			<h1>Achievement</h1>
+			<h1>Achievements</h1>
 			<AchievementSearch />
 			<AchievementList />
 		</div>
