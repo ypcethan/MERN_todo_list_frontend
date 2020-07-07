@@ -29,6 +29,7 @@ const Register = (props) => {
       dispatch(setAlert(error));
       dispatch(clearError());
     }
+    // eslint-disable-next-line
   }, [error, isAuthenticated]);
 
   return (

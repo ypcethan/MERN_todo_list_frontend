@@ -28,6 +28,7 @@ const Login = (props) => {
       dispatch(setAlert(error));
       dispatch(clearError());
     }
+    // eslint-disable-next-line
   }, [error, isAuthenticated]);
   return (
     <div className="register__container">

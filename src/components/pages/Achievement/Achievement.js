@@ -8,6 +8,7 @@ const Achievement = () => {
 	const dispatch = useDispatch()
 	useEffect(()=> {
 		dispatch(clearTasks())	
+		// eslint-disable-next-line
 	}, [])
 	return (
 		<div className='container'>

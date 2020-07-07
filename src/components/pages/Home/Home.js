@@ -9,6 +9,7 @@ const Home = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getTasks());
+    // eslint-disable-next-line
   }, []);
   return (
     <div className="container">
