@@ -16,7 +16,6 @@ const Navbar = () => {
   };
   const authLinks = (
     <>
-      <span className="nav__welcome"> Welcome {user} </span>
       <Link to="/" className="nav__item">
         Home
       </Link>

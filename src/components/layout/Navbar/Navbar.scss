@@ -63,6 +63,9 @@
     }
     &__item{
       margin-top: 4rem;
+      &:hover{
+        color: white;
+      }
     }
     &__burger {
       display: block;
