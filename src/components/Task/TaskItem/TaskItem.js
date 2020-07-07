@@ -13,12 +13,12 @@ const TaskItem = ({ task }) => {
 	const { content, _id, dueDate } = task
 	const formattedDate = moment(dueDate).format('MMM Do')
 	const dispatch = useDispatch()
-	const deleteItem = (e) => {
+	const deleteItem = () => {
 		dispatch(deleteTask(_id))
 		dispatch(clearCurrent())
 	}
-	const completeTask = (e) => {
-		dispatch(updateTask({...task , completed: true}))
+	const completeTask = () => {
+		dispatch(updateTask({...task , completed: true ,completedDate:new Date()}))
 	}
 
 	const setEdit = () => {

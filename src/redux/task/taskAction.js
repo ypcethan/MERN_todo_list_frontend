@@ -8,6 +8,7 @@ import {
 	CLEAR_CURRENT,
 	FILTER_TASK,
 	CLEAR_FILTER,
+	CLEAR_TASKS,
 } from './taskType'
 
 let baseUrl
@@ -29,12 +30,19 @@ export const clearFilter = () => {
 		type: CLEAR_FILTER,
 	}
 }
+
+export const clearTasks = () => {
+	return {
+		type: CLEAR_TASKS,
+	}
+}
 export const getTasks = (options=null) => {
 	return async (dispatch) => {
 		try {
 			let response
 			if (options){
-				response = await axios.get(baseUrl + `/api/tasks/${options}`)
+				const {amount , unit} = options
+				response = await axios.get(baseUrl + `/api/tasks/completed/${amount}/${unit}`)
 			}
 			else{
 				response = await axios.get(baseUrl + '/api/tasks')
@@ -72,7 +80,8 @@ export const updateTask = (task) => {
 		const bodyData = {
 			content: task.content,
 			dueDate: task.dueDate,
-			completed:task.completed
+			completed:task.completed,
+			completedDate:task.completedDate || null
 		}
 
 		try {

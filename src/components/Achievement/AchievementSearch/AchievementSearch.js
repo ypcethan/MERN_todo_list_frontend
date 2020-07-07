@@ -2,13 +2,16 @@ import React ,{useState} from 'react'
 import {useDispatch} from 'react-redux'
 import  {getTasks}from '../../../redux/task/taskAction'
 import './AchievementSearch.scss'
+import moment from 'moment'
 const AchievementSearch = () => {
 	const dispatch=useDispatch()
 	const [text,setText] = useState('')
 	const handleSubmit = (e) => {
 		e.preventDefault()
 		console.log('Submit')
-		dispatch(getTasks('asdf'))
+		// const fromDate = moment().subtract(3, 'days')
+		const option = {amount: 3, unit:'days'}
+		dispatch(getTasks(option))
 	}
 	return (
 		<div>
