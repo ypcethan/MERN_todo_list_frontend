@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useForm } from "react-hook-form";
 import { login, clearError } from "../../../redux/auth/authAction";
 import { setAlert } from "../../../redux/alert/alertAction";
 import "../Register/Register.scss";
@@ -11,7 +12,8 @@ const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const { errors, handleSubmit, register } = useForm();
+  const onSubmit = (e) => {
     e.preventDefault();
     dispatch(
       login({
@@ -34,18 +36,7 @@ const Login = (props) => {
     <div className="register__container">
       <div className="register__header">Login</div>
       <div className="register__form__container">
-        <form action="" className="register__form">
-          <label className="register__input__label" htmlFor="password">
-            Password
-          </label>
-          <input
-            type="password"
-            id="password"
-            placeholder="Password"
-            name="password"
-            className="register__form__input"
-            onChange={(e) => setPassword(e.target.value)}
-          />
+        <form className="register__form" onSubmit={handleSubmit(onSubmit)}>
           <label className="register__input__label" htmlFor="name">
             Email
           </label>
@@ -56,10 +47,29 @@ const Login = (props) => {
             placeholder="Email"
             className="register__form__input"
             onChange={(e) => setEmail(e.target.value)}
+            ref={register({
+              required: "Email is required",
+            })}
           />
-          <button className="form__submit__btn" onClick={handleSubmit}>
-            Sign In
-          </button>
+          {errors.email && <p className="danger">{errors.email.message} </p>}
+          <label className="register__input__label" htmlFor="password">
+            Password
+          </label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            name="password"
+            className="register__form__input"
+            onChange={(e) => setPassword(e.target.value)}
+            ref={register({
+              required: "Password is required",
+            })}
+          />
+          {errors.password && (
+            <p className="danger">{errors.password.message} </p>
+          )}
+          <button className="form__submit__btn">Sign In</button>
         </form>
       </div>
     </div>
