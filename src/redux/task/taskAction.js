@@ -70,7 +70,6 @@ export const getTasks = (options = null) => {
 
 export const createTask = (task) => {
   return async (dispatch) => {
-    console.log(task);
     try {
       const response = await axios.post(baseUrl + "/api/tasks", {
         content: task.content,
