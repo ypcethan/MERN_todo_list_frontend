@@ -13,8 +13,7 @@ const Login = (props) => {
   const [password, setPassword] = useState("");
 
   const { errors, handleSubmit, register } = useForm();
-  const onSubmit = (e) => {
-    e.preventDefault();
+  const onSubmit = () => {
     dispatch(
       login({
         email,

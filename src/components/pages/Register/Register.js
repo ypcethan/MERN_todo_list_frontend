@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { register, clearError } from "../../../redux/auth/authAction";
+import {
+  register as registerUser,
+  clearError,
+} from "../../../redux/auth/authAction";
 import { setAlert } from "../../../redux/alert/alertAction";
 import { useForm } from "react-hook-form";
 import "./Register.scss";
@@ -12,10 +15,9 @@ const Register = (props) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const onSubmit = (e) => {
-    e.preventDefault();
+  const onSubmit = () => {
     dispatch(
-      register({
+      registerUser({
         name,
         email,
         password,
