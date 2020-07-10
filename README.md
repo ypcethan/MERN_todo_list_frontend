@@ -1,8 +1,8 @@
----
+<!-- ---
 title: MERN todo list
 excerpt: A slight overkill version of typical todo list app  
 project_url: https://mern-todo-list.netlify.app 
----
+--- -->
 
 ![MERN todo](/mern-todo.png)
 ## Project URL
