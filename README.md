@@ -1,68 +1,40 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
+title: MERN todo list
+excerpt: A slight overkill version of typical todo list app  
+project_url: https://mern-todo-list.netlify.app 
+image: ./images/mern-todo.png 
+---
+## Project URL
+<https://mern-todo-list.netlify.app>
 
-## Available Scripts
+## Introduction
 
-In the project directory, you can run:
+Todo list has been one the most popular learning project for a learner that is picking up new technology but lack of imagination at the time. In addition to the basic CRUD (create, read, update and delete) operations that are necessary for almost all applications, I've implemented basic a user registration system, and a page for users to view tasks they have accomplished given the period they choose.
 
-### `yarn start`
+## Technologies
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Frontend
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- React JS : SPA app.
+- React router : Page routing for SPA app.
+- Redux : State management.
+- SCSS : Styling.
+- Netlify : Deployment of static assets.
 
-### `yarn test`
+### Backend (API)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Express JS : Lightweight backend framework.
+- JSON web token : For stateless authentication.
+- Mongoose : Object relational mapper ( Provide an easier interface for CRUD operations on MongoDB).
+- MongoDB : Document database.
+- Digital ocean : For server deployment. (Using Nginx as reverse proxy).
 
-### `yarn build`
+## What I have learned from the project
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The purpose of this project is for me to gain a high-level understanding of how a basic full stack single-page app operates. Some of the most important topics I have learned throughout the project are:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+1. Understand how API authentication work under the hood.
+    - High-level frameworks like Django,Laravel, and Rails they all have some sort of scaffolding functionally that generate authentication system out of the box.
+2. Tricky aspects of communications between frontend and backend using AJAX.
+    - AJAX calls are asynchronous (well... that's that the "A" stands for  ). The implication of that is that one cannot simply put asynchronous code in redux action generator.  Redux middleware like redux-thunk is required.
+    - To access any protected routes, one has to configure request header properly with the token received from the previous request.
