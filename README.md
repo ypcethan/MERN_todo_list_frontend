@@ -2,7 +2,7 @@
 title: MERN todo list
 excerpt: A slight overkill version of typical todo list app  
 project_url: https://mern-todo-list.netlify.app 
-image: ./images/mern-todo.png 
+image: ./mern-todo.png 
 ---
 ## Project URL
 <https://mern-todo-list.netlify.app>
