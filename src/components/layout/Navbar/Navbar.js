@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { logout } from '../../../redux/auth/authAction'
+import logo from './logo.png'
 import './Navbar.scss'
 const Navbar = () => {
 	const dispatch = useDispatch()
@@ -45,7 +46,10 @@ const Navbar = () => {
 	)
 	return (
 		<div className="nav">
-			<div className="nav__logo"> MERN todo list </div>
+			<div className="nav__logo__container"> 
+			<img src={logo} alt="" className="nav__logo"/>
+			MERN todoist 
+			 </div>
 			<div className="nav__links__container">
 				<ul 
 					className={`nav__links ${burgerActive ? 'nav__links--active' : ''}`}>

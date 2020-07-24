@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React ,{useEffect}from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   register as registerUser,
@@ -12,16 +12,9 @@ const Register = (props) => {
   const error = useSelector((state) => state.auth.error);
   const { register, handleSubmit, errors } = useForm();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const onSubmit = () => {
+  const onSubmit = (data) => {
     dispatch(
-      registerUser({
-        name,
-        email,
-        password,
-      })
+      registerUser(data)
     );
   };
 
@@ -50,7 +43,6 @@ const Register = (props) => {
             name="name"
             placeholder="Name"
             className="register__form__input"
-            onChange={(e) => setName(e.target.value)}
             ref={register({
               required: "Name is required",
             })}
@@ -65,7 +57,6 @@ const Register = (props) => {
             placeholder="Password"
             name="password"
             className="register__form__input"
-            onChange={(e) => setPassword(e.target.value)}
             ref={register({
               required: "Password is required",
               minLength: {
@@ -87,7 +78,6 @@ const Register = (props) => {
             name="email"
             placeholder="Email"
             className="register__form__input"
-            onChange={(e) => setEmail(e.target.value)}
             ref={register({
               required: true,
               pattern: {

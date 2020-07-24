@@ -12,9 +12,16 @@
     margin-right: 1.5rem;
   }
 
-  &__logo {
+  &__logo__container {
     margin-left: 1rem;
+    display: flex;
+    align-items: center;
   }
+  &__logo{
+    width: 40px;
+    margin-right: 0.5rem;
+  }
+
 
   &__links {
     margin-right: 3rem;

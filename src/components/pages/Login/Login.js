@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {  useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { login, clearError } from "../../../redux/auth/authAction";
@@ -9,16 +9,11 @@ const Login = (props) => {
   const dispatch = useDispatch();
   const error = useSelector((state) => state.auth.error);
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
   const { errors, handleSubmit, register } = useForm();
-  const onSubmit = () => {
+  const onSubmit = (data) => {
     dispatch(
-      login({
-        email,
-        password,
-      })
+      login(data)
     );
   };
   useEffect(() => {
@@ -45,7 +40,6 @@ const Login = (props) => {
             name="email"
             placeholder="Email"
             className="register__form__input"
-            onChange={(e) => setEmail(e.target.value)}
             ref={register({
               required: "Email is required",
             })}
@@ -60,7 +54,6 @@ const Login = (props) => {
             placeholder="Password"
             name="password"
             className="register__form__input"
-            onChange={(e) => setPassword(e.target.value)}
             ref={register({
               required: "Password is required",
             })}
